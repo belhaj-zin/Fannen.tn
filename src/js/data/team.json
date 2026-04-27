@@ -1,0 +1,23 @@
+[
+    {
+        "id": "team-001",
+        "name": "The Architect",
+        "image": "../../Resources/img/Tammam BenBettayeb Picture.jpg",
+        "role": "Data Structures & Backend",
+        "description": "Mastering the logic behind the beauty. The Architect ensures that every artisan's portfolio is securely managed and every transaction flows seamlessly through our Native PHP foundation."
+    },
+    {
+        "id": "team-002",
+        "name": "The Designer",
+        "image": "../../Resources/img/Farouk Tounakti Picture.jpg",
+        "role": "Aesthetics & UX",
+        "description": "Guardian of the visual soul. The Designer weaves the digital tapestry of Fannen.tn, ensuring the interface honors the profound beauty of Maghrebian craftsmanship."
+    },
+    {
+        "id": "team-003",
+        "name": "The Integrator",
+        "image": "../../Resources/img/Zineddine BelhaAjli Picture.jpg",
+        "role": "Vanilla JS & DOM",
+        "description": "Wizard of interaction. The Integrator breathes life into static designs, connecting the rigid logic of the backend to the fluid experience of the frontend with pure code."
+    }
+]
