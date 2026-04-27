@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fannen.tn - Sign In</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="auth-layout">
+        <div class="auth-hero">
+            <img src="https://images.unsplash.com/photo-1563837738662-c86ef2ba99f8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Master artisan crafting ceramics">
+            <div class="auth-hero-overlay">
+                <span class="badge"
+                    style="position: static; display: inline-block; margin-bottom: 1rem; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px);">
+                    <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"
+                        style="display:inline; vertical-align:middle;">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Verified Tunisian Artisans
+                </span>
+                <h1 class="font-heading">Crafting the soul of Tunisia, one piece at a time.</h1>
+                <p style="color: #EEEEEE;">Fannen.tn connects the world to the timeless beauty of Mediterranean heritage
+                    through the hands of master craftsmen.</p>
+            </div>
+            <div style="position: absolute; bottom: 2rem; left: 2rem; color: #FFF; font-size: 0.875rem; z-index: 10;">
+                &copy; 2024 Fannen.tn. Supporting Tunisian craftsmanship.
+            </div>
+        </div>
+
+        <div class="auth-form-side">
+            <a href="../index.html">
+                <div class="navbar-logo">
+                    <img src="../../Resources/logo/logo.svg" alt="Fannen.tn Logo">
+                </div>
+            </a>
+
+            <div class="text-center" style="margin-bottom: 2rem;">
+                <h2 class="font-heading" style="font-size: 2.25rem; margin-bottom: 0.5rem;">Sign In</h2>
+                <p>Welcome back. Sign in with your account credentials.</p>
+            </div>
+
+            <div class="auth-box">
+                <div
+                    style="padding: 2rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: #FFF; box-shadow: var(--shadow-sm);">
+                    <h3 style="margin-bottom: 0.5rem;">Account Access</h3>
+                    <p class="text-sm" style="margin-bottom: 1.5rem;">Enter your email and password to continue.</p>
+
+                    <form action="#" method="POST" id="signin-form">
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="amine@example.tn" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password *</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label class="form-label">Role *</label>
+                            <div class="flex gap-sm">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                    <input type="radio" name="role" value="user" checked> Enthusiast
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                    <input type="radio" name="role" value="artisan"> Artisan
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" id="btn-submit-signin">
+                            Sign In &rarr;
+                        </button>
+                    </form>
+                </div>
+
+                <div class="text-center" style="margin-top: 1.5rem; font-size: 0.875rem;">
+                    New here? <a href="register.html" class="text-link">Create an account</a>
+                </div>
+                <div class="text-center" style="margin-top: 1rem; font-size: 0.875rem;">
+                    Just want to browse? <a href="../index.html" class="text-link" style="color: var(--color-charcoal);">Go to Gallery &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/components/signin.js"></script>
+</body>
+
+</html>

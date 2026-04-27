@@ -29,27 +29,31 @@
         <nav class="navbar-nav">
             <a href="index.html">Explore</a>
             <a href="html/our_story.html">Our Story</a>
-            <a href="html/auth.html" class="btn btn-ghost" style="margin-left: 1rem;">Login</a>
-            <a href="html/auth.html" class="btn btn-primary">Join Fannen</a>
+            <a href="html/login.html" class="btn btn-ghost" style="margin-left: 1rem;">Login</a>
+            <a href="html/login.html" class="btn btn-primary">Join Fannen</a>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="../Resources/video/hero.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
             <div class="container">
                 <h1>Preserving the Sacred Hand-Craft of the Maghreb.</h1>
                 <p>Fannen connects global collectors directly to the vanishing artisan craft of the Maghreb. Timeless.
                     Authentic. One piece at a time.</p>
                 <div class="flex justify-center gap-sm">
                     <a href="#gallery" class="btn btn-primary">Explore Vault</a>
-                    <a href="html/auth.html" class="btn btn-outline" style="background:#fff;">Join as Artisan</a>
+                    <a href="html/login.html?role=artisan" class="btn btn-outline" style="background:#fff;">Join as Artisan</a>
                 </div>
             </div>
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="container" style="padding-top: var(--spacing-xxl);">
+        <section id="gallery" class="container" style="padding-top: var(--spacing-xl);">
             <div class="flex justify-between items-center" style="margin-bottom: var(--spacing-lg);">
                 <h2 style="font-size: 2rem;">The Artisan Vault</h2>
 

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const artworkId = urlParams.get('id');
+    let currentArtwork = null;
     
     if (artworkId) {
         fetch('../js/data/artworks.json')
@@ -8,12 +9,40 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 const artwork = data.find(a => a.id === artworkId);
                 if (artwork) {
+                    currentArtwork = artwork;
                     renderArtworkDetail(artwork);
                 } else {
                     document.querySelector('.artwork-detail-layout').innerHTML = '<h2>Artwork not found.</h2>';
                 }
             })
             .catch(err => console.error(err));
+    }
+
+    const addToCartBtn = document.getElementById('btn-add-to-cart-detail');
+    if (addToCartBtn) {
+        const authStateStr = localStorage.getItem('fannen_auth_state');
+        const authState = authStateStr ? JSON.parse(authStateStr) : { isLoggedIn: false, role: 'user' };
+
+        if (authState.isLoggedIn && authState.role === 'artisan') {
+            addToCartBtn.style.display = 'none';
+        }
+
+        addToCartBtn.addEventListener('click', () => {
+            const fallbackId = artworkId || 'artwork-detail-item';
+            const fallbackTitleEl = document.querySelector('.artwork-info-card h1');
+            const fallbackImageEl = document.querySelector('.artwork-left img');
+            const fallbackArtisanEl = document.querySelector('.artisan-info .font-bold');
+
+            const selectedArtwork = currentArtwork || {
+                id: fallbackId,
+                title: fallbackTitleEl ? fallbackTitleEl.textContent.trim() : 'Artwork',
+                image: fallbackImageEl ? fallbackImageEl.src : '',
+                artisanName: fallbackArtisanEl ? fallbackArtisanEl.textContent.trim() : 'Unknown Artisan',
+                price: 0
+            };
+
+            addArtworkToCart(selectedArtwork);
+        });
     }
 
     // Modal logic for "Send an Inquiry"
@@ -97,6 +126,35 @@ function renderArtworkDetail(artwork) {
             localStorage.setItem(storageKey, JSON.stringify(hist));
         });
     });
+}
+
+function addArtworkToCart(artwork) {
+    const authStateStr = localStorage.getItem('fannen_auth_state');
+    const authState = authStateStr ? JSON.parse(authStateStr) : { isLoggedIn: false, role: 'user' };
+
+    if (!authState.isLoggedIn || authState.role !== 'user') {
+        alert('Please sign in as an enthusiast to add items to cart.');
+        return;
+    }
+
+    const cart = JSON.parse(localStorage.getItem('fannen_cart_items') || '[]');
+    const existing = cart.find(item => item.id === artwork.id);
+
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({
+            id: artwork.id,
+            title: artwork.title,
+            image: artwork.image,
+            artisanName: artwork.artisanName,
+            price: Number(artwork.price) || 0,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem('fannen_cart_items', JSON.stringify(cart));
+    alert('Artwork added to your cart.');
 }
 
 function openInquiryModal() {

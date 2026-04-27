@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize cross-page UI helpers once the DOM is ready.
     initNavbar();
     initImageFallbacks();
+    initHeroVideoPlayback();
 });
 
 function isLevel2() {
+    // Pages inside /src/html use different relative paths than /src/index.html.
     return window.location.pathname.includes('/html/');
 }
 
+// Navbar Personalization Mock
 function initNavbar() {
+    // Read mock auth session from localStorage to personalize nav actions.
     const authStateStr = localStorage.getItem('fannen_auth_state');
     const authState = authStateStr ? JSON.parse(authStateStr) : { isLoggedIn: false };
 
@@ -19,17 +24,20 @@ function initNavbar() {
 
     if (authState.isLoggedIn) {
         if (loginLink) {
-            loginLink.textContent = authState.role === 'artisan' ? 'Dashboard' : 'Profile';
-            loginLink.href = isLevel2() ? 'dashboard.html' : 'html/dashboard.html';
+            // Route authenticated users to the unified profile page.
+            loginLink.textContent = 'Profile';
+            loginLink.href = isLevel2() ? 'profile.html' : 'html/profile.html';
         }
         
         if (joinLink) {
+            // Convert the Join action into Logout when a user is already authenticated.
             joinLink.textContent = 'Logout';
             joinLink.classList.remove('btn-primary');
             joinLink.classList.add('btn-outline');
             joinLink.href = '#';
             joinLink.addEventListener('click', (e) => {
                 e.preventDefault();
+                // Clear only auth state, then return to home with the proper relative path.
                 localStorage.removeItem('fannen_auth_state');
                 window.location.href = isLevel2() ? '../index.html' : 'index.html';
             });
@@ -38,6 +46,7 @@ function initNavbar() {
 }
 
 function initImageFallbacks() {
+    // Any broken image gets replaced by a local placeholder to avoid empty UI blocks.
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         img.addEventListener('error', function() {
@@ -45,6 +54,13 @@ function initImageFallbacks() {
             this.onerror = null; // Prevent infinite loops
         });
     });
+}
+
+function initHeroVideoPlayback() {
+    // Slow down decorative hero video for a calmer background motion.
+    const heroVideo = document.querySelector('.hero-video');
+    if (!heroVideo) return;
+    heroVideo.playbackRate = 0.5;
 }
 
 // Notifications Popup Mock
@@ -56,6 +72,7 @@ notifBtns.forEach(btn => {
         let popup = document.getElementById('notifications-popup-mock');
         
         if (!popup) {
+            // Lazy-create the popup the first time the user clicks notifications.
             popup = document.createElement('div');
             popup.id = 'notifications-popup-mock';
             popup.style.cssText = `
@@ -82,15 +99,18 @@ notifBtns.forEach(btn => {
             // Need to append it to something relative, or just absolute on body
             document.body.appendChild(popup);
             
+            // Global click closes the popup when user clicks outside.
             document.addEventListener('click', () => {
                 if (popup.style.display === 'flex') {
                     popup.style.display = 'none';
                 }
             });
             
+            // Keep popup open when interacting with its own content.
             popup.addEventListener('click', (ev) => ev.stopPropagation());
         }
         
+        // Toggle visibility for subsequent clicks.
         popup.style.display = popup.style.display === 'none' ? 'flex' : 'none';
     });
 });

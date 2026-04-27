@@ -5,6 +5,7 @@
         "artisanId": "user-99",
         "artisanName": "Hedi Baklouti",
         "category": "ceramics",
+        "price": 540,
         "description": "Hand-painted terracotta with traditional indigo pigments.",
         "image": "https://images.unsplash.com/photo-1663888672535-956677e08412?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "kudos": {
@@ -22,6 +23,7 @@
         "artisanId": "user-100",
         "artisanName": "Malek Ben Salem",
         "category": "ceramics",
+        "price": 450,
         "description": "A beautiful vase showcasing the deep blue hues of traditional oasis pottery.",
         "image": "https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?q=80&w=687&auto=format&fit=crop",
         "kudos": {
@@ -39,6 +41,7 @@
         "artisanId": "user-101",
         "artisanName": "Fatma Berriri",
         "category": "textiles",
+        "price": 890,
         "description": "Hand-woven rug made from pure Atlas mountain wool.",
         "image": "https://images.unsplash.com/photo-1606885118474-c8baf907e998?q=80&w=687&auto=format&fit=crop",
         "kudos": {
@@ -56,6 +59,7 @@
         "artisanId": "user-102",
         "artisanName": "Amine Khlif",
         "category": "ceramics",
+        "price": 320,
         "description": "A classic amphora painted with Nabeul's signature blue and white motifs.",
         "image": "https://plus.unsplash.com/premium_photo-1673152979526-98b94a39b6aa?q=80&w=687&auto=format&fit=crop",
         "kudos": {
@@ -73,6 +77,7 @@
         "artisanId": "user-103",
         "artisanName": "Yassine Dridi",
         "category": "woodwork",
+        "price": 150,
         "description": "A uniquely grained serving bowl carved from a single piece of ancient olive wood.",
         "image": "https://plus.unsplash.com/premium_photo-1677249227901-38319e9408fd?q=80&w=687&auto=format&fit=crop",
         "kudos": {

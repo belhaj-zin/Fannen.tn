@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const authState = authStateStr ? JSON.parse(authStateStr) : { isLoggedIn: false, role: 'user' };
 
     if (!authState.isLoggedIn || authState.role !== 'artisan') {
-        window.location.href = 'auth.html';
+        window.location.href = 'login.html';
         return;
     }
 
